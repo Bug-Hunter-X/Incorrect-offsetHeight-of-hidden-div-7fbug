@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").style.display = "none";
+      // Missing a setTimeout or similar to allow the display to change before attempting to get the offsetHeight
+      var height = document.getElementById("myDiv").offsetHeight; // This line causes the bug
+      console.log("Height:" + height); 
+    }
+  </script>
+</body>
+</html>
