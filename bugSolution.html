@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").style.display = "none";
+      // Use a short timeout to allow for layout update
+      setTimeout(function() {
+        var height = document.getElementById("myDiv").offsetHeight;
+        console.log("Height:" + height); 
+      }, 10); // Adjust timeout as needed
+    }
+  </script>
+</body>
+</html>
